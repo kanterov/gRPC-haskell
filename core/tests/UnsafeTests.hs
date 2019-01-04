@@ -19,11 +19,13 @@ import           Network.GRPC.Unsafe.Security
 import           Network.GRPC.Unsafe.Slice
 import           Network.GRPC.Unsafe.Time
 import           System.Clock
-import           Test.QuickCheck.Gen             as QC
-import           Test.QuickCheck.Property        as QC
+import qualified Test.QuickCheck.Gen             as QC
+import qualified Test.QuickCheck.Property        as QC
 import           Test.Tasty
-import           Test.Tasty.HUnit                as HU (testCase, (@?=))
-import           Test.Tasty.QuickCheck           as QC
+import           Test.Tasty.HUnit                (testCase, (@?=))
+import qualified Test.Tasty.HUnit                as HU
+import           Test.Tasty.QuickCheck           (Arbitrary, (===), arbitrary, suchThat, vector)
+import qualified Test.Tasty.QuickCheck           as QC
 
 unsafeTests :: TestTree
 unsafeTests = testGroup "Unit tests for unsafe C bindings"
